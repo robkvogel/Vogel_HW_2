@@ -190,6 +190,17 @@ all_actors = Actor.all
 #puts all_actors.inspect
 
 christian_bale = Actor.find_by({"name" => "Christian Bale" })
+michael_cane = Actor.find_by({"name" => "Michael Caine" })
+liam_neeson = Actor.find_by({"name" => "Liam Neeson" })
+katie_holmes = Actor.find_by({"name" => "Katie Holmes" })
+gary_oldman = Actor.find_by({"name" => "Gary Oldman" })
+heath_ledger = Actor.find_by({"name" => "Heath Ledger" })
+aaron_eckhart = Actor.find_by({"name" => "Aaron Eckhart" })
+maggie_gyllenhaal = Actor.find_by({"name" => "Maggie Gyllenhaal" })
+tom_hardy = Actor.find_by({"name" => "Tom Hardy"})
+joseph_gordon_levitt = Actor.find_by({"name" => "Joseph Gordon-Levitt" })
+anne_hathaway = Actor.find_by({"name" => "Anne Hathaway" })
+
 
 
 #____________ROLES_________
