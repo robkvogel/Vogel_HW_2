@@ -336,6 +336,10 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
 
+#puts ""
+#puts "all roles data is #{all_roles.inspect}"
+#puts "count of roles is #{all_roles.count}"
+
 for role in all_roles
     movie = Movie.find_by({"id" => role["movie_id"]})
     #puts movie.inspect
@@ -349,4 +353,3 @@ for role in all_roles
 
 end
 
-#puts all_roles.inspect
