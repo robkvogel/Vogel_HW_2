@@ -92,6 +92,8 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+#___________MOVIES ____________
+
 puts "Number of rows in Movies table is #{Movie.all.count}"
 new_movie = Movie.new
 new_movie["title"] = "Batman Begins"
@@ -123,6 +125,66 @@ puts all_movies.inspect
 #______________STUDIOS______________
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
+new_studio.save
+puts "Number of rows in Studios table is now #{Studio.all.count}"
+
+all_studios = Studio.all
+puts all_studios.inspect
+
+
+#______________Actors________________
+new_actor = Actor.new
+new_actor["name"] = "Christian Bale"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Michael Caine"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Liam Neeson"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Katie Holmes"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Gary Oldman"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Heath Ledger"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Aaron Eckhart"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Maggie Gyllenhaal"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Tom Hardy"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Joseph Gordon-Levitt"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Anne Hathaway"
+new_actor.save
+
+
+puts "Number of rows in Actors table is now #{Actor.all.count}"
+
+all_actors = Actor.all
+puts all_actors.inspect
+
+#____________Roles_________
+
 
 
 # Prints a header for the movies output
