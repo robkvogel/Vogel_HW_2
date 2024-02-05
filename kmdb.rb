@@ -304,18 +304,28 @@ new_role["character_name"] = "Selina Kyle"
 new_role.save
 
 
-
 puts "Number of rows in Roles table is now #{Role.all.count}"
 puts "Role inspect is #{all_roles.inspect}"
 
 
 # Prints a header for the movies output
+puts ""
 puts "Movies"
 puts "======"
 puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+for movie in all_movies
+    movie_title = movie["title"]
+    year_released = movie["year_released"]
+    rating = movie["rated"]
+    studio = Studio.find(movie["studio_id"])
+    studio_name= studio["name"]
+    puts "#{movie_title} |  #{year_released} | #{rating} | #{studio_name}"
+
+end
+
 
 # Prints a header for the cast output
 puts ""
