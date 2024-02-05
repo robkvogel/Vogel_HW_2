@@ -71,12 +71,59 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+#Key Models will be Movies, Studios, Actors, Roles
+Movie.destroy_all 
+Studio.destroy_all
+Actor.destroy_all
+Role.destroy_all
+
 # Generate models and tables, according to the domain model.
 # TODO!
+
+#I put the generate model code into terminal and the specific table instructions int he db > migrate files. Not sure how to show here but pasted to show what I put into terminal
+
+#rails generate model Role
+#rails generate model Movie
+#rails generate model Studio
+#rails generate model 
+
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+puts "Number of rows in Movies table is #{Movie.all.count}"
+new_movie = Movie.new
+new_movie["title"] = "Batman Begins"
+new_movie["year_released"] = 2005
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = 1 #we will return to this later
+new_movie.save
+#puts "Number of rows in Movies table is now #{Movie.all.count}"
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight"
+new_movie["year_released"] = 2008
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = 1 #we will return to this later
+new_movie.save
+#puts "Number of rows in Movies table is now #{Movie.all.count}"
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight Rises"
+new_movie["year_released"] = 2012
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = 1 #we will return to this later
+new_movie.save
+#puts "Number of rows in Movies table is now #{Movie.all.count}"
+
+all_movies = Movie.all
+puts all_movies.inspect
+
+#______________STUDIOS______________
+new_studio = Studio.new
+new_studio["name"] = "Warner Bros."
+
 
 # Prints a header for the movies output
 puts "Movies"
