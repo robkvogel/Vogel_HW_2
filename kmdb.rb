@@ -320,12 +320,12 @@ for movie in all_movies
     movie_title = movie["title"]
     year_released = movie["year_released"]
     rating = movie["rated"]
-    studio = Studio.find(movie["studio_id"])
+    studio = Studio.find_by({"id" => movie["studio_id"]})
+    #puts studio.inspect
     studio_name= studio["name"]
     puts "#{movie_title} |  #{year_released} | #{rating} | #{studio_name}"
 
 end
-
 
 # Prints a header for the cast output
 puts ""
@@ -335,3 +335,18 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+for role in all_roles
+    movie = Movie.find_by({"id" => role["movie_id"]})
+    #puts movie.inspect
+    movie_title = movie["title"]
+    actor = Actor.find_by({"id" =>role["actor_id"] })
+    actor_name = actor["name"]
+    #puts actor.inspect
+    character_name = role["character_name"]
+    #puts role.inspect
+    puts "#{movie_title}| #{actor_name} |#{character_name} "
+
+end
+
+#puts all_roles.inspect
