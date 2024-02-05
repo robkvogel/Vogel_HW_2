@@ -92,36 +92,6 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-#___________MOVIES ____________
-
-puts "Number of rows in Movies table is #{Movie.all.count}"
-new_movie = Movie.new
-new_movie["title"] = "Batman Begins"
-new_movie["year_released"] = 2005
-new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = 1 #we will return to this later
-new_movie.save
-#puts "Number of rows in Movies table is now #{Movie.all.count}"
-
-new_movie = Movie.new
-new_movie["title"] = "The Dark Knight"
-new_movie["year_released"] = 2008
-new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = 1 #we will return to this later
-new_movie.save
-#puts "Number of rows in Movies table is now #{Movie.all.count}"
-
-new_movie = Movie.new
-new_movie["title"] = "The Dark Knight Rises"
-new_movie["year_released"] = 2012
-new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = 1 #we will return to this later
-new_movie.save
-#puts "Number of rows in Movies table is now #{Movie.all.count}"
-
-all_movies = Movie.all
-puts all_movies.inspect
-
 #______________STUDIOS______________
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
@@ -129,7 +99,43 @@ new_studio.save
 puts "Number of rows in Studios table is now #{Studio.all.count}"
 
 all_studios = Studio.all
-puts all_studios.inspect
+#puts all_studios.inspect
+
+#___________MOVIES ____________
+
+#puts "Number of rows in Movies table is #{Movie.all.count}"
+
+warnerbros= Studio.find_by({"name" => "Warner Bros."})
+puts "inspect is #{warnerbros.inspect}"
+
+new_movie = Movie.new
+new_movie["title"] = "Batman Begins"
+new_movie["year_released"] = 2005
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = warnerbros["id"] 
+new_movie.save
+#puts "Number of rows in Movies table is now #{Movie.all.count}"
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight"
+new_movie["year_released"] = 2008
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = warnerbros["id"] 
+new_movie.save
+#puts "Number of rows in Movies table is now #{Movie.all.count}"
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight Rises"
+new_movie["year_released"] = 2012
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = warnerbros["id"] 
+new_movie.save
+puts "Number of rows in Movies table is now #{Movie.all.count}"
+
+all_movies = Movie.all
+puts all_movies.inspect
+
+
 
 
 #______________Actors________________
@@ -181,11 +187,31 @@ new_actor.save
 puts "Number of rows in Actors table is now #{Actor.all.count}"
 
 all_actors = Actor.all
-puts all_actors.inspect
+#puts all_actors.inspect
 
-#____________Roles_________
+christian_bale = Actor.find_by({"name" => "Christian Bale" })
 
 
+#____________ROLES_________
+all_roles = Role.all
+
+batman_begins = Movie.find_by({"title" => "Batman Begins" })
+dark_knight = Movie.find_by({"title" => "The Dark Knight" })
+dark_knight_rises = Movie.find_by({"title" => "The Dark Knight Rises"})
+
+#puts "inspect is #{batman_begins.inspect}"
+#puts "inspect is #{dark_knight.inspect}"
+#puts "inspect is #{dark_knight_rises.inspect}"
+
+new_role = Role.new
+new_role["movie_id"] = batman_begins["id"]
+new_role["actor_id"] = christian_bale["id"]
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+
+
+puts "Number of rows in Roles table is now #{Role.all.count}"
+puts "Role inspect is #{all_roles.inspect}"
 
 # Prints a header for the movies output
 puts "Movies"
